@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <!--<form name="person">
+        <input name="id" value="1">
+        <input name="fname" value="ss">
+        <input name="lname" value="ss">
+        <input name="age" value="2">
+    </form>-->
+    <input type="text" id="txtid" value="1">
+    <input type="text" id="txtf" value="ss">
+    <input type="text" id="txtl" value="ss">
+    <input type="text" id="txta" value="2">
+    <br />
+    <input type="button" id="btnCreate=" value="create" onclick="create()" />
+    <input type="button" id="btnRead" value="read" onclick="read()">
+    <input type="button" id="btnUpdate" value="update" onclick="update()">
+    <input type="button" id="btnDelite" value="delite" onclick="delite()">
+    <br /><input type="button" id="btnSelectDao" value="Mock" onclick="selectDao(this)">
+    <script>
+        function create()
+        {  
+            var personData = "id="+txtid.value+"&fname="+txtf.value+"&lname="+txtl.value+"&age="+txta.value;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "http://localhost:1623/WebService1.asmx/create", true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.send(personData);
+        }
+
+        function read()
+        {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "http://localhost:1623/WebService1.asmx/read", true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.send();
+            xhr.onreadystatechange = function ()
+            {
+                if (this.readyState != 4) return;
+                alert(xhr.responseText);
+            }
+        }
+
+        function update()
+        {
+            var personData = "id=" + txtid.value + "&fname=" + txtf.value + "&lname=" + txtl.value + "&age=" + txta.value;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "http://localhost:1623/WebService1.asmx/update", true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.send(personData);
+        }
+
+        function delite()
+        {
+            var personData = "id=" + txtid.value + "&fname=" + txtf.value + "&lname=" + txtl.value + "&age=" + txta.value;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "http://localhost:1623/WebService1.asmx/delete", true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.send(personData);
+        }
+
+        function selectDao(name)
+        {
+            var selectDAO = "selectDAO="+name;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "http://localhost:1623/WebService1.asmx/ini", true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.send(selectDAO);
+        }
+    </script>
+</body>
+</html>

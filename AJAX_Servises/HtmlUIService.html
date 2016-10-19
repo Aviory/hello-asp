@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <input type="button" id="btnCreate" value="create" onclick="numBtn_Click()" />
+    <script>
+
+        function numBtn_Click(sender) {
+
+            var con = new XMLHttpRequest();
+            con.open('POST', 'http://localhost:1623/WebService.asmx', false);
+            con.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            con.send(param);
+            var result = con.responseText;
+            alert(result);
+            //txtResalt.value = result;
+            // 4. Если код ответа сервера не 200, то это ошибка
+            if (con.status != 200) {
+                // обработать ошибку
+                alert(con.status + ': ' + con.statusText); // пример вывода: 404: Not Found
+            }
+        }
+
+    </script>
+
+</body>
+</html>

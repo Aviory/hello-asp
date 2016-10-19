@@ -1,0 +1,3 @@
+﻿<div>
+	<p>ID: <%ID%>	<%fname%>	<%lname%>	<%age%></p>
+</div>

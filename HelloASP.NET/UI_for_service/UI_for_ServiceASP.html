@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body> 
+    <script type="text/javascript">
+        window.onload = function ()
+        {
+            HelloASP.NET.WebService1.read(go, off);
+        }
+        function go(result)
+        {
+            alert(result);
+        }
+        function off(error)
+        {
+            alert(error.message);
+        }
+           
+    </script>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ScriptManager >
+
+            </asp:ScriptManager>
+        </div>
+    </form>
+</body>
+</html>
